@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<include>
+  <context name="default">
+
+    <extension name="show_info">
+      <condition field="destination_number" expression="^9192$">
+        <action application="answer"/>
+        <action application="info"/>
+        <action application="sleep" data="250"/>
+        <action application="hangup"/>
+      </condition>
+    </extension>
+
+    <extension name="local">
+	<condition regex="all">
+		<regex field="destination_number" expression="^9([2-9][0-9]{6})$"/>
+		<regex field="${toll_allow}" expression="local"/>
+		<action application="bridge" data="sofia/gateway/sip.flagonc.com/$1"/>
+	</condition>
+    </extension>
+
+    <extension name="long_distance">
+	<condition regex="all">
+	<regex field="destination_number" expression="^9(1[2-9][0-9]{2}[2-9][0-9]{6})$"/>
+	<regex field="${toll_allow}" expression="ld"/>
+	<action application="bridge" data="sofia/gateway/sip.flagonc.com/$1"/>
+	</condition>
+    </extension>
+
+    <extension name="international">
+	<condition regex="all">
+	<regex field="destination_number" expression="^9(011\d*)"/>
+	<regex field="${toll_allow}" expression="international"/>
+	<action application="bridge" data="sofia/gateway/sip.flagonc.com/$1"/>
+	</condition>
+    </extension>
+
+    <!-- Dial local extensions -->
+    <extension name="Local_Extension">
+      <condition field="destination_number" expression="^(10[01][0-9])$">
+        <action application="bridge" data="user/$1@${domain_name}"/>
+      </condition>
+    </extension>
+
+    
+  </context>
+</include>
