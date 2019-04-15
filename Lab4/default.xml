@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<include>
+  <context name="default">
+
+    <!-- Dial local extensions -->
+    <extension name="Local_Extension">
+      <condition field="destination_number" expression="^(10[01][0-9])$">
+        <action application="bridge" data="user/$1@${domain_name}"/>
+      </condition>
+    </extension>
+
+    
+   <!-- Dial to pstn starting with 9-->
+   <extension name="pstn">
+        <condition field="destination_number" expression="^9([1-9]\d*)">
+                <action application="bridge" data="sofia/gateway/sip.flagonc.com/$1"/>
+        </condition>
+    </extension>
+
+
+  </context>
+</include>

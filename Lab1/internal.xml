@@ -1,0 +1,17 @@
+<profile name="internal">
+	<aliases></aliases>
+	<gateways></gateways>
+	<domains>
+		<domain name="all" alias="true" parse="false"/>
+	</domains>
+	<settings>
+		<param name="sip-ip" value="192.168.0.71"/>
+		<param name="rtp-ip" value="192.168.0.71"/>
+		<param name="sip-port" value="5060"/>
+		<param name="context" value="default"/>
+                <param name="auth-calls" value="true"/>
+	</settings>
+</profile>
+
+
+

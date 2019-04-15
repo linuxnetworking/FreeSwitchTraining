@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<include>
+  <context name="default">
+    <extension name="Local_Extension">
+      <condition field="destination_number" expression="^(10[01][0-9])$">
+        <action application="bridge" data="user/$1@${domain_name}"/>
+      </condition>
+    </extension>
+  </context>
+</include>

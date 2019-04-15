@@ -1,0 +1,28 @@
+<profile name="external">
+        <aliases></aliases>
+        <gateways>
+  		<gateway name="sip.flagonc.com">
+  			<param name="username" value="1020"/>
+  			<param name="password" value="supersecret"/>
+  			<param name="from-domain" value="sip.flagonc.com"/>
+  			<param name="from-user" value="1020"/>
+  			<param name="sip-port" value="5600"/>
+  			<param name="proxy" value="sip.flagonc.com:5600"/>
+  			<param name="extension" value="1000"/>
+  			<param name="register" value="true"/>
+  			<param name="ping" value="25"/>
+                	<param name="context" value="public"/>
+	  	</gateway>
+	</gateways>
+        <domains></domains>
+        <settings>
+                <param name="sip-ip" value="192.168.0.71"/>
+                <param name="rtp-ip" value="192.168.0.71"/>
+                <param name="sip-port" value="5080"/>
+                <param name="ext-sip-ip" value="189.34.60.208"/>
+                <param name="ext-rtp-ip" value="189.34.60.208"/>
+                <param name="sip-port" value="5080"/>
+                <param name="context" value="public"/>
+        </settings>
+</profile>
+
